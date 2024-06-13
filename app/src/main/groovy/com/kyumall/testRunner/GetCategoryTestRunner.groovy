@@ -4,7 +4,6 @@ import net.grinder.script.GTest
 import net.grinder.scriptengine.groovy.junit.GrinderRunner
 import net.grinder.scriptengine.groovy.junit.annotation.BeforeProcess
 import net.grinder.scriptengine.groovy.junit.annotation.BeforeThread
-import org.assertj.core.api.Assertions
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -16,6 +15,7 @@ import org.ngrinder.http.cookie.CookieManager
 
 import static net.grinder.script.Grinder.grinder
 import static org.hamcrest.Matchers.is
+import static org.junit.Assert.assertThat
 
 /**
  * 카테고리 조회 성능 테스트 러너
@@ -60,7 +60,7 @@ class GetCategoryTestRunner {
         if (response.statusCode == 301 || response.statusCode == 302) {
             grinder.logger.warn("Warning. The response may not be correct. The response code was {}.", response.statusCode)
         } else {
-            Assertions.assertThat(response.statusCode).isEqualTo(200)
+            assertThat(response.statusCode, is(200))
         }
     }
 }
