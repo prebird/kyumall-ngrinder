@@ -25,9 +25,13 @@ dependencies {
 
     // This dependency is used by the application.
     implementation 'com.google.guava:guava:30.1.1-jre'
+    implementation 'org.assertj:assertj-core:3.23.1'
 
     // Use the awesome Spock testing and specification framework even with Java
     testImplementation 'junit:junit:4.13.2'
+
+    // ngrinder
+    implementation group: 'org.ngrinder', name: 'ngrinder-groovy', version: '3.5.9'
 }
 
 application {
